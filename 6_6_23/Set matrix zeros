@@ -1,0 +1,20 @@
+  void setZeroes(vector<vector<int>>& m1) {
+        int m = m1.size(),n = m1[0].size();
+        int i = 0 , j = 0;
+        vector<int > a,b;
+        while(i<m ){
+            j=0;
+            while(j<n)
+            {if(m1[i][j]==0){a.push_back(i); 
+            b.push_back(j);}j++;}
+            i++;
+    }
+    for(auto it:a){
+        cout << it ;
+        for(int q = 0;q<n;q++)m1[it][q]=0;
+    }
+    for(auto itr :b){
+        for(int q = 0;q<m;q++)m1[q][itr]=0;
+        cout << itr ;
+    }
+    }

@@ -1,0 +1,25 @@
+vector<int> nextPermutation(vector<int> &p, int n)
+{
+    //  Write your code here.
+    int ans  = 1;
+    int  i = n;
+    for(auto it:p){if(it!=i){ans = 0; break;}i--;}
+    if(ans){
+        reverse(p.begin(),p.end());
+        return p;
+    }
+    int j = 0;
+    while(j!=n-1){
+        if(p[j+1]>p[j])ans = j;
+        j++;
+    }
+    int a1 = ans + 1;
+    for(int i = ans+2;i<n;i++){
+        if(p[i]>p[ans]&& p[i]<p[ans+1]){
+            if(p[i]<p[a1])a1 = i;
+        }
+    }
+    swap(p[ans],p[a1]);
+    sort(p.begin()+ans+1,p.end());
+    return p;
+}
